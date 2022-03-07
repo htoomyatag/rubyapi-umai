@@ -1,12 +1,14 @@
 require_relative './base_controller.rb'
 
+
 class PostsController < BaseController
 
-  def index
+   def index
     @title = "So many post"
     @posts = Post.all
     build_response render_template
   end
+
 
   def show
     @post = Post.find(params[:id])
@@ -20,13 +22,30 @@ class PostsController < BaseController
   end
 
   def create
-    title = params['post']['title']
-    user = params['post']['user_id']
-    content = params['post']['content']
-    ip = params['post']['author_ip']
 
-    post = Post.create(title: title, user_id: user, content: content, author_ip: ip)
-    post.save
-    redirect_to "posts/#{post.id}"
+    title = params['post']['title']
+    content = params['post']['content']
+    username = params['post']['username']
+    password = params['post']['password']
+    ip = @request.ip
+
+    user = User.find_by_username(params['post']['username'])
+    if user && user.password == params['post']['password']
+        post = Post.create(title: title, user_id: user.id, content: content, author_ip: ip)
+    else
+        user = User.create(username: username, password: password)
+        user.save
+        post = Post.create(title: title, user_id: user.id, content: content, author_ip: ip)
+    end
+
+    if post.invalid?
+          error_validation
+        elsif post.save
+          status_success
+        else
+          # failure when saving => status 500
+    end
+   
+
   end
 end

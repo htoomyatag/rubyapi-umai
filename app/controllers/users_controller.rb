@@ -15,8 +15,7 @@ class UsersController < BaseController
     username = params['user']['username']
     password = params['user']['password']
     user = User.create(username: username, password: password)
-    user.save
-    puts "all ok"
+    
   end
 
 end

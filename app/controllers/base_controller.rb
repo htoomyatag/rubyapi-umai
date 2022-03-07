@@ -3,6 +3,15 @@ require 'erb'
 class BaseController
   attr_reader :request
 
+  def status_success(msg = "200")
+    [200, { "Content-Type" => "text/plain" }, [msg]]
+  end
+
+  def error_validation(msg = "422")
+    [422, { "Content-Type" => "text/plain" }, [msg]]
+  end
+
+
   def initialize(request)
     @request = request
   end
