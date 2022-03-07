@@ -1,6 +1,8 @@
 require_relative './base_controller.rb'
 
 class PostsController < BaseController
+
+
   def index
     @title = "So many post"
     @posts = Post.all
@@ -10,7 +12,7 @@ class PostsController < BaseController
 
   def show
     @post = Post.find(params[:id])
-    @title = "#{@post.name}'s page"
+    @title = "#{@post.title}'s page"
     build_response render_template
   end
 
@@ -22,7 +24,7 @@ class PostsController < BaseController
 
 
   def create
-    post = Post.new(name: params['post']['name'])
+    post = Post.create(title: params['post']['title'])
     post.save
     redirect_to "posts/#{post.id}"
   end

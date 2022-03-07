@@ -12,7 +12,7 @@
         <% @posts.each do |post| %>
           <li>
             <a href="/posts/<%= post.id %>">
-              <%= "#{post.id} - #{post.name}" %>
+              <%= "#{post.id} - #{post.title}" %>
             </a>
           </li>
         <% end %>
