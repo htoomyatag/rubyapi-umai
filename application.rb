@@ -1,3 +1,12 @@
+require 'yaml'
+require 'active_record'
+require 'dotenv'
+require 'erb'
+require 'active_job'
+require 'sidekiq' 
+require 'sidekiq-scheduler'
+
+
 app_files = File.expand_path('../app/**/*.rb', __FILE__)
 Dir.glob(app_files).each { |file| require(file) }
 
@@ -10,6 +19,20 @@ class Application
   def serve_request(request)
     Router.new(request).route!
   end
+
+   def self.root
+     @root ||= File.dirname(File.expand_path('..', __FILE__))
+   end
+
+   def self.env
+     @env ||= ENV["RAILS_ENV"] || ENV["RACK_ENV"] || ENV["ENV"] || "development"
+   end
+
+   def self.logger
+     @logger ||= Logger.new(STDOUT)
+   end
+
+
 end
 
 
