@@ -20,10 +20,10 @@ class RatingsController < BaseController
 
     if rating.invalid?
           error_validation
-        elsif rating.save
+    elsif rating.save
           post_rates = Rating.where(:post_id => post).pluck(:rate)
           @average_rating = post_rates.sum / post_rates.size
-        else
+    else
           # failure when saving => status 500
     end
     return_rating average_rating

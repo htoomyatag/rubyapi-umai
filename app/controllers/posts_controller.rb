@@ -56,9 +56,9 @@ class PostsController < BaseController
 
     if post.invalid?
           error_validation
-        elsif post.save
+    elsif post.save
           status_success
-        else
+    else
           # failure when saving => status 500
     end
    
