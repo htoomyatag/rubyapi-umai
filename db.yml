@@ -1,0 +1,52 @@
+---
+Post_1: !ruby/object:Post
+  id: 1
+  name: Poop Machine
+Post_2: !ruby/object:Post
+  id: 2
+  name: Fido
+Post_3: !ruby/object:Post
+  id: 3
+  name: rgge
+Post_4: !ruby/object:Post
+  id: 4
+  name: rgge
+Post_5: !ruby/object:Post
+  id: 5
+  name: 
+Post_6: !ruby/object:Post
+  id: 6
+  name: aok
+Post_7: !ruby/object:Post
+  id: 7
+  name: oreerhe
+Post_8: !ruby/object:Post
+  id: 8
+  name: fff
+Post_9: !ruby/object:Post
+  id: 9
+  name: fff
+Post_10: !ruby/object:Post
+  id: 10
+  name: fff
+Post_11: !ruby/object:Post
+  id: 11
+  name: fff
+Post_12: !ruby/object:Post
+  id: 12
+  name: fff
+Post_13: !ruby/object:Post
+  id: 13
+  name: fff
+Post_14: !ruby/object:Post
+  id: 14
+  name: hhtrhr
+Post_15: !ruby/object:Post
+  id: 15
+  name: fff
+Post_16: !ruby/object:Post
+  id: 16
+  name: egreg
+Post_17: !ruby/object:Post
+  id: 17
+  name: hal
