@@ -12,7 +12,10 @@
         <% @posts.each do |post| %>
           <li>
             <a href="/posts/<%= post.id %>">
-              <%= "#{post.id} - #{post.title}" %>
+              <%= "#{post.title}" %>
+              <%= "#{post.user_id}" %>
+              <%= "#{post.content}" %>
+              <%= "#{post.author_ip}" %>
             </a>
           </li>
         <% end %>
