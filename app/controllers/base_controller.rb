@@ -1,4 +1,5 @@
 require 'erb'
+require 'json'
 
 class BaseController
   attr_reader :request
@@ -35,6 +36,20 @@ class BaseController
 
   def params
     request.params
+  end
+
+  def render_json(name = params[:action])
+    templates_dir = self.class.name.downcase.sub("controller", "")
+    template_file = File.join(templates_dir, "#{name}.json")
+
+    file_path = template_file_path_for(template_file)
+
+    if File.exists?(file_path)
+      puts "Rendering template file #{template_file}"
+      render_erb_file(file_path)
+    else
+      "ERROR: no available template file #{template_file}"
+    end
   end
 
 

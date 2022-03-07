@@ -3,11 +3,20 @@ require_relative './base_controller.rb'
 
 class PostsController < BaseController
 
-   def index
-    @title = "So many post"
-    @posts = Post.all
-    build_response render_template
+
+
+ 
+
+  def index
+
+     rating = Rating.pluck(:rate)
+     average_rating = rating.sum / rating.size
+     @top_post_ids = Rating.where(:rate => average_rating).pluck(:post_id)
+     @posts = Post.where(:id => @top_post_ids).pluck(:title,:content)
+     build_response render_json
   end
+
+
 
 
   def show
