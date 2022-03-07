@@ -18,7 +18,7 @@ end
 
 
   def db_configuration
-    db_configuration_file_path = File.join(File.expand_path('..', __dir__),'SimpleRubyApi', 'db', 'config.yml')
+    db_configuration_file_path = File.join(File.expand_path('..', __dir__),'umai', 'db', 'config.yml')
     db_configuration_result = ERB.new(File.read(db_configuration_file_path)).result
     YAML.safe_load(db_configuration_result, aliases: true)
   end

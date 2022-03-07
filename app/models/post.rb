@@ -1,8 +1,1 @@
-class Post < ActiveRecord::Base
-  # attr_accessor :id, :name
-
-  # def initialize(id: nil, name: nil)
-  #   @id = id
-  #   @name = name
-  # end
-end
+class Post < ActiveRecord::Base;end
