@@ -50,6 +50,8 @@ class Router
     case fragment
     when "new"
       [nil, :new]
+    when 'ip_address_list'
+      [nil, :ip_address_list]
     when nil
       action = @request.get? ? :index : :create
       [nil, action]

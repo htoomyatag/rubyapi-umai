@@ -3,7 +3,14 @@ require_relative './base_controller.rb'
 
 class PostsController < BaseController
 
+  
 
+  def ip_address_list
+
+    @ips = Post.includes(:user).all.pluck(:author_ip, "users.username")
+    build_response render_json
+
+  end
 
  
 
