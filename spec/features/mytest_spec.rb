@@ -1,12 +1,29 @@
-# RSpec.describe "Mytest", :type => :request do
-
-#   describe "check smth" do
-#    it "assigns a newly created api_v1 as @api_v1" do
-#       post :post, params: {content: 'aok'}
-#   end
-
-#   end
+require 'httparty'
 
 
-# end
+describe "create post", :type => :request do
+
+
+   before do
+   
+
+    @response = HTTParty.post 'http://127.0.0.1:9292/posts', 
+    body: {post: { 
+        :title => 'this title', 
+        :user_id => '1', 
+        :content => 'this is my content', 
+        :author_ip => '127.0.0.1'
+    }}
+
+
+  end
+
+    it 'is true' do
+         expect(JSON.parse(@response.body)) == (200)
+    end
+
+
+
+
+end
 

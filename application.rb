@@ -6,7 +6,7 @@ require 'active_job'
 require 'sidekiq' 
 require 'sidekiq-scheduler'
 require 'nokogiri'
-
+require 'httparty'
 
 app_files = File.expand_path('../app/**/*.rb', __FILE__)
 Dir.glob(app_files).each { |file| require(file) }
