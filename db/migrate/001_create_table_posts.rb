@@ -4,7 +4,7 @@ class CreateTablePosts < ActiveRecord::Migration[6.0]
         t.string :title
         t.integer :user_id
         t.text :content
-        t.integer :author_ip
+        t.string :author_ip
     end
   end
 end

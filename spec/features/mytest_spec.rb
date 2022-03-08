@@ -1,11 +1,12 @@
-RSpec.describe "Mytest", :type => :request do
+# RSpec.describe "Mytest", :type => :request do
 
-  describe "check smth" do
-    it "should be eq" do
-      expect(3).to   eq(3)
-    end
+#   describe "check smth" do
+#    it "assigns a newly created api_v1 as @api_v1" do
+#       post :post, params: {content: 'aok'}
+#   end
 
-  end
+#   end
 
 
-end
+# end
+

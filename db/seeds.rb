@@ -1,38 +1,89 @@
 require './app/models/user'
 require './app/models/post'
+require './app/models/feedback'
+
 require 'ffaker'
-User.create([
-	{ username: 'username1', password:"password" }, 
-	{ username: 'username2', password:"password" }
-])
+
+# 10000 POST-FEEDBACK OWNER
+# 50 USER-FEEDBACK BY OWNER
+# 200000 POST CREATED BY 100 USER BY USING 5O IP
 
 
-
-#200000 POST FROM 100 USER WITH DIFFERENT IP
- 10.times do
-	#100 user created
+100.times do
 	username = FFaker::Name.unique.name
-    password  = 'password'
+	password  = 'password'
+    
     user = User.create username: username,password: password
-    20.times do
-	    title = FFaker::Lorem.word
-	    content = FFaker::Lorem.paragraph
-	    ip_address = FFaker::Internet.ip_v4_address
-	    Post.create title: title, content: content, user_id:user.id, author_ip: ip_address
-    end
+
+	50.times do
+		ip_address = FFaker::Internet.ip_v4_address
+		40.times do
+		    title = FFaker::Lorem.word
+		    content = FFaker::Lorem.paragraph
+			Post.create title: title, content: content, user_id:user.id, author_ip: ip_address
+	    end
+	end
+
+	100.times do
+		 owner_comment = FFaker::Lorem.paragraph
+		 owner_id = rand(1..50)
+	     post_id = rand(1..200000)
+		 Feedback.create post_id:post_id, owner_comment:owner_comment, owner_id: owner_id
+	end
+
+end
+
+
+50.times do
+   owner_comment = FFaker::Lorem.paragraph
+   owner_id = rand(1..50)
+   user_id = rand(1..200000)
+   Feedback.create user_id:user_id, owner_comment:owner_comment, owner_id: owner_id
 end
 
 
 
-#10000 FEEDBACK FROM 50 USER WITH RANDOM TEXT
-# 50.times do
-# 	#50 user created
-# 	username = Faker::Internet.username
-#     password  = Faker::Internet.password
-#     user = User.create username: username,password: password
-#     200.times do
 
-#     owner_comments = Faker::Quote.yoda 	
-#     Feedback.create user_id: .. , post_id: post_id, owner_comment:comments, owner_id: user.id
+
+
+
+
+# 10.times do
+# 	username = FFaker::Name.unique.name
+# 	password  = 'password'
+    
+#     user = User.create username: username,password: password
+
+# 	5.times do
+# 		ip_address = FFaker::Internet.ip_v4_address
+# 		4.times do
+# 		    title = FFaker::Lorem.word
+# 		    content = FFaker::Lorem.paragraph
+# 			Post.create title: title, content: content, user_id:user.id, author_ip: ip_address
+# 	    end
+# 	end
+
+# 	10.times do
+# 		 owner_comment = FFaker::Lorem.paragraph
+# 	     owner_id = rand(1..50)
+# 	     post_id = rand(1..200000)
+# 		 Feedback.create post_id:post_id, owner_comment:owner_comment, owner_id: owner_id
+# 	end
 
 # end
+
+
+# 5.times do
+#    owner_comment = FFaker::Lorem.paragraph
+#    owner_id = rand(1..50)
+#    user_id = rand(1..200000)
+#    Feedback.create user_id:user_id, owner_comment:owner_comment, owner_id: owner_id
+# end
+
+
+
+
+
+	
+
+

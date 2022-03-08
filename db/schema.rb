@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 4) do
     t.string "title"
     t.integer "user_id"
     t.text "content"
-    t.integer "author_ip"
+    t.string "author_ip"
   end
 
   create_table "ratings", force: :cascade do |t|
