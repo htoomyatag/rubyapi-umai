@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 4) do
   create_table "feedbacks", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
-    t.text "comment"
+    t.text "owner_comment"
     t.integer "owner_id"
   end
 

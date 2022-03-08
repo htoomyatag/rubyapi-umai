@@ -32,7 +32,7 @@ end
 #     user = User.create username: username,password: password
 #     200.times do
 
-#     comments = Faker::Quote.yoda 	
-#     Feedback.create user_id: .. , post_id: post_id, comment:comments, owner_id: user.id
+#     owner_comments = Faker::Quote.yoda 	
+#     Feedback.create user_id: .. , post_id: post_id, owner_comment:comments, owner_id: user.id
 
 # end

@@ -3,7 +3,7 @@ class CreateTableFeedbacks < ActiveRecord::Migration[6.0]
     create_table :feedbacks do |t|
       t.integer :user_id
       t.integer :post_id
-      t.text :comment
+      t.text :owner_comment
       t.integer :owner_id
     end
   end

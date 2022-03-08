@@ -5,6 +5,7 @@ require 'erb'
 require 'active_job'
 require 'sidekiq' 
 require 'sidekiq-scheduler'
+require 'nokogiri'
 
 
 app_files = File.expand_path('../app/**/*.rb', __FILE__)

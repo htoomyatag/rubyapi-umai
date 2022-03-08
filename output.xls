@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <feedbacks>
+    <feedback>
+      <owner_comment>aokcomment</owner_comment>
+      <user_id>1</user_id>
+      <type>user type</type>
+      <owner_id>1</owner_id>
+    </feedback>
+    <feedback>
+      <owner_comment>bokcomment</owner_comment>
+      <user_id>1</user_id>
+      <type>user type</type>
+      <owner_id>1</owner_id>
+    </feedback>
+    <feedback>
+      <owner_comment>post to comment</owner_comment>
+      <type>post type</type>
+      <post_id>1</post_id>
+      <owner_id>2</owner_id>
+    </feedback>
+    <feedback>
+      <owner_comment>user to comment</owner_comment>
+      <user_id>1</user_id>
+      <type>user type</type>
+      <owner_id>2</owner_id>
+    </feedback>
+  </feedbacks>
+</root>
