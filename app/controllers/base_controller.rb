@@ -1,4 +1,3 @@
-require 'erb'
 require 'json'
 
 class BaseController
@@ -10,6 +9,10 @@ class BaseController
 
   def error_validation(msg = "422")
     [422, { "Content-Type" => "text/plain" }, [msg]]
+  end
+
+  def unauthorized(msg = "401")
+    [401, { "Content-Type" => "text/plain" }, [msg]]
   end
 
 
@@ -49,33 +52,6 @@ class BaseController
       render_erb_file(file_path)
     else
       "ERROR: no available template file #{template_file}"
-    end
-  end
-
-
-  def render_template(name = params[:action])
-    templates_dir = self.class.name.downcase.sub("controller", "")
-    template_file = File.join(templates_dir, "#{name}.html.erb")
-
-    file_path = template_file_path_for(template_file)
-
-    if File.exists?(file_path)
-      puts "Rendering template file #{template_file}"
-      render_erb_file(file_path)
-    else
-      "ERROR: no available template file #{template_file}"
-    end
-  end
-
-
-  def render_partial(template_file)
-    file_path = template_file_path_for(template_file)
-
-    if File.exists?(file_path)
-      puts "> Rendering partial file #{template_file}"
-      render_erb_file(file_path)
-    else
-      "ERROR: no available partial file #{template_file}"
     end
   end
 

@@ -3,29 +3,25 @@ require_relative './base_controller.rb'
 class RatingsController < BaseController
 
 
-  def index
-   
-    @ratings = Rating.all
-    build_response render_template
-
-  end
-
-  def create
+  #TASK 2 
+  #http://127.0.0.1:9292/ratings/create_rating
+  def create_rating
  
     post = params['rating']['post_id']
     rate = params['rating']['rate']
-
+    #create rating by POST ID and RATE 1 to 5
     rating = Rating.create(post_id: post, rate: rate)
   
-
-    if rating.invalid?
+    if rating.invalid? #if enter more than 5
           error_validation
     elsif rating.save
           post_rates = Rating.where(:post_id => post).pluck(:rate)
-          @average_rating = post_rates.sum / post_rates.size
+          #average rating calculation
+          @average_rating = post_rates.sum / post_rates.size 
     else
           # failure when saving => status 500
     end
+     #return average rating number
     return_rating average_rating
 
   end

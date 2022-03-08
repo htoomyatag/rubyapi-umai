@@ -3,22 +3,17 @@ require_relative './base_controller.rb'
 
 class PostsController < BaseController
 
-  
-
-
+  #TASK 4  
+  #http://127.0.0.1:9292/posts/ip_address_list
   def ip_address_list
-
     @ips = Post.includes(:user).all.pluck(:author_ip, "users.username")
     build_response render_json
-
-
-
   end
 
  
-
-  def index
-
+  #TASK 3
+  #http://127.0.0.1:9292/posts/top_post_by_avg_rating
+  def top_post_by_avg_rating
      rating = Rating.pluck(:rate)
      average_rating = rating.sum / rating.size
      @top_post_ids = Rating.where(:rate => average_rating).pluck(:post_id)
@@ -27,20 +22,9 @@ class PostsController < BaseController
   end
 
 
-
-
-  def show
-    @post = Post.find(params[:id])
-    @title = "#{@post.title}'s page"
-    build_response render_template
-  end
-
-  def new
-    @title = "More post please"
-    build_response render_template
-  end
-
-  def create
+  #TASK 1
+  #http://127.0.0.1:9292/posts/create_post
+  def create_post
 
     title = params['post']['title']
     content = params['post']['content']
@@ -64,7 +48,7 @@ class PostsController < BaseController
     else
           # failure when saving => status 500
     end
-   
-
   end
+
+
 end

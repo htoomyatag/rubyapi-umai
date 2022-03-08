@@ -3,23 +3,52 @@ source "https://rubygems.org"
 ruby '3.0.1'
 
 gem 'rack'
+# to power web application run in ruby
+
 gem 'sqlite3'
-# gem used in non-rails and non-ruby applications
+# for database
+
 gem 'standalone_migrations'
-# standalone_migrations need rake to be able to create migrations and run them, as in Rails
+# for migrations
+
 gem 'rake'
-# Gem needed to load environment variables
+# to run rake test
+
 gem 'dotenv'
+# to load environment variabled
+
 gem 'activerecord'
+# for mapping tables
+
 gem 'yaml'
+
 gem 'ffaker'
+# for fake data
+
 gem 'sidekiq'
+# for background job 
+
 gem 'sidekiq-scheduler'
+# for 9am schedule 
+
 gem 'activejob'
+# for background job
+
 gem 'redis-namespace'
+
 gem 'rspec'
+# for testing
+
 gem 'rspec-expectations'
+
 gem 'json'
+# for json format
+
 gem 'webrick'
+# for server
+
 gem 'nokogiri'
+# for export xml
+
 gem 'httparty'
+# for POST in rspec

@@ -3,12 +3,12 @@ require 'sidekiq'
 require 'sidekiq-scheduler'
 
 
-class HardJob
+class ExportxmlJob
   # include Sidekiq::Worker
   include Sidekiq::Job
 
   def perform
-
+  
     allfeedbacks = Feedback.includes(:user)
   
     xml_content = Nokogiri::XML::Builder.new { |xml| 

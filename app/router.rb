@@ -40,23 +40,29 @@ class Router
   def route_info
     @route_info ||= begin
       resource = path_fragments[0] || "base"
-      id, action = find_id_and_action(path_fragments[1])
+      id, action = find_route(path_fragments[1])
       { resource: resource, id: id, action: action }
     end
   end
 
 
-  def find_id_and_action(fragment)
+  def find_route(fragment)
     case fragment
-    when "new"
-      [nil, :new]
     when 'ip_address_list'
       [nil, :ip_address_list]
-    when nil
-      action = @request.get? ? :index : :create
-      [nil, action]
+    when 'create_user'
+      [nil, :create_user]
+    when 'authenticate'
+      [nil, :authenticate]
+    when 'create_rating'
+      [nil, :create_rating]
+    when 'top_post_by_avg_rating'
+      [nil, :top_post_by_avg_rating]
+    when 'create_post'
+      [nil, :create_post] 
+    when 'add_feedback'
+      [nil, :add_feedback]        
     else
-      [fragment, :show]
     end
   end
 

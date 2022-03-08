@@ -4,4 +4,4 @@
 :schedule:
   my_worker:
     cron: '00 09 * * * *'   # Runs every 9am
-    class: HardJob
+    class: ExportxmlJob
